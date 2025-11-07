@@ -98,6 +98,14 @@ return view.extend({
         o.value('hdrezka', 'HDRezka');
         o.value('tiktok', 'Tik-Tok');
         o.value('telegram', 'Telegram');
+        o.value('cloudflare', 'Cloudflare');
+        o.value('google_ai', 'Google AI');
+        o.value('google_play', 'Google Play');
+        o.value('hodca', 'H.O.D.C.A');
+        o.value('hetzner', 'Hetzner ASN');
+        o.value('ovh', 'OVH ASN');
+        o.value('digitalocean', 'Digital Ocean ASN');
+        o.value('cloudfront', 'CloudFront ASN');
         o.depends('domain_list_enabled', '1');
         o.rmempty = false;
         o.ucisection = 'main';
@@ -655,6 +663,14 @@ return view.extend({
         o.value('hdrezka', 'HDRezka');
         o.value('tiktok', 'Tik-Tok');
         o.value('telegram', 'Telegram');
+        o.value('cloudflare', 'Cloudflare');
+        o.value('google_ai', 'Google AI');
+        o.value('google_play', 'Google Play');
+        o.value('hodca', 'H.O.D.C.A');
+        o.value('hetzner', 'Hetzner ASN');
+        o.value('ovh', 'OVH ASN');
+        o.value('digitalocean', 'Digital Ocean ASN');
+        o.value('cloudfront', 'CloudFront ASN');
         o.depends('domain_list_enabled', '1');
         o.rmempty = false;
 
