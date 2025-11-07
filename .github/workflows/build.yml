@@ -1,8 +1,13 @@
 name: Build packages
+
 on:
   push:
     tags:
       - v*
+
+permissions:
+  contents: write
+  packages: write
 
 jobs:
   build:
@@ -11,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4.2.1
 
-      - name: Build and push
+      - name: Build and push Docker image
         uses: docker/build-push-action@v6.9.0
         with:
           context: .
@@ -20,8 +25,9 @@ jobs:
       - name: Create Docker container
         run: docker create --name rapiex rapiex:ci
 
-      - name: Copy file from Docker container
+      - name: Copy files from Docker container
         run: |
+          mkdir -p ./bin
           docker cp rapiex:/builder/bin/packages/x86_64/utilites/. ./bin/
           docker cp rapiex:/builder/bin/packages/x86_64/luci/. ./bin/
 
@@ -38,7 +44,9 @@ jobs:
       - name: Remove Docker container
         run: docker rm rapiex
 
-      - name: Release
+      - name: Create GitHub release
         uses: softprops/action-gh-release@v2.0.8
         with:
           files: ./filtered-bin/*.ipk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
