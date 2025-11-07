@@ -1,6 +1,6 @@
 # RapieX
 
-⚠️ Неофициальный форк. Используйте на свой страх и риск.
+⚠️ Неофициальный форк.
 
 ## Возможности
 - VLESS, Shadowsocks, VPN (WG/AmneziaWG/OpenVPN/OpenConnect)
